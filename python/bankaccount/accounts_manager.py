@@ -7,6 +7,7 @@ class PersonalAccountsManager:
     accounts: list[BankAccount]
 
     def __init__(self):
+        self.accounts = []
         self.accounts.append(BankAccount('Arthur', Decimal(800_000_000)))
 
     def get_account_for_customer(self, customer_name: str):
