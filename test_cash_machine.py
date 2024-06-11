@@ -1,4 +1,5 @@
 from decimal import Decimal
+import pytest
 
 from python.bankaccount.cash_machine import CashMachine
 
@@ -30,3 +31,8 @@ def test_withdraw_more_than_balance():
 def test_get_balance():
     cash_machine = CashMachine()
     assert cash_machine.get_balance_from_account("town", "Arthur") == Decimal(800_000_000)
+
+def test_unknown_customer():
+    cash_machine = CashMachine()
+    with pytest.raises(ValueError):
+        cash_machine.get_balance_from_account("town", "FakeArthur")
