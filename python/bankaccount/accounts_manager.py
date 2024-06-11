@@ -1,8 +1,10 @@
+from dataclasses import dataclass
 from decimal import Decimal
 
 from python.bankaccount.account import BankAccount
 
 
+@dataclass
 class PersonalAccountsManager:
     accounts: list[BankAccount]
 

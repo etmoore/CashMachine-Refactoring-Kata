@@ -4,13 +4,19 @@ from python.bankaccount.branch_finder import BranchFinder
 
 
 class CashMachine:
-    @property
-    def branch_finder(self):
-        return BranchFinder()
+    def __init__(self):
+        self.branch_finder = BranchFinder()
+
+    def get_balance_from_account(self, town: str, customer:str) -> Decimal:
+        return self.branch_finder \
+            .find_branch_for_town(town) \
+            .personal_accounts \
+            .get_account_for_customer(customer) \
+            .balance
 
     def withdraw(self, town: str, customer: str, amount: Decimal):
         return self.branch_finder \
             .find_branch_for_town(town) \
-            .personal_accounts() \
+            .personal_accounts \
             .get_account_for_customer(customer) \
             .withdraw(amount)
