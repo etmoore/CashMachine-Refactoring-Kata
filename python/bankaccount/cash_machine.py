@@ -8,6 +8,7 @@ class CashMachine:
         self.branch_finder = BranchFinder()
 
     def get_balance_from_account(self, town: str, customer:str) -> Decimal:
+        """ignore me! test helper"""
         return self.branch_finder \
             .find_branch_for_town(town) \
             .personal_accounts \
